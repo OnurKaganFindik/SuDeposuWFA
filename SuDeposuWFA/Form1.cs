@@ -12,9 +12,26 @@ namespace SuDeposuWFA
 {
     public partial class Form1 : Form
     {
+        SuDeposu suDeposu = new SuDeposu(100);
+
         public Form1()
         {
             InitializeComponent();
+            lblKapasite.Text = suDeposu.Kapasite + "m³";
+            SeviyeGuncelle();
+        }
+
+        private void SeviyeGuncelle()
+        {
+            pnlSu.Height = (int)(pnlDepo.Height * suDeposu.DolulukOrani);
+            decimal yuzde = 100 * suDeposu.DolulukOrani;
+            lblDolulukOrani.Text = string.Format("{0:0.##}%", yuzde);
+        }
+
+        private void btnSuEkle_Click(object sender, EventArgs e)
+        {
+            suDeposu.SuEkle(nudSuMiktari.Value);
+            SeviyeGuncelle();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SuDeposuWFA
     public class SuDeposu
     {
         private readonly decimal _kapasite;
-        public decimal Kapasite { get; { return _kapasite; } }
+        public decimal Kapasite { get { return _kapasite; } }
 
         public decimal SuMiktari { get; private set; }
 

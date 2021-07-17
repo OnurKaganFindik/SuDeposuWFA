@@ -36,7 +36,9 @@ namespace SuDeposuWFA
             this.label2 = new System.Windows.Forms.Label();
             this.nudSuMiktari = new System.Windows.Forms.NumericUpDown();
             this.btnSuEkle = new System.Windows.Forms.Button();
+            this.lblDolulukOrani = new System.Windows.Forms.Label();
             this.pnlDepo.SuspendLayout();
+            this.pnlSu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSuMiktari)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@ namespace SuDeposuWFA
             // pnlSu
             // 
             this.pnlSu.BackColor = System.Drawing.Color.Aqua;
+            this.pnlSu.Controls.Add(this.lblDolulukOrani);
             this.pnlSu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlSu.Location = new System.Drawing.Point(0, 368);
             this.pnlSu.Name = "pnlSu";
@@ -89,6 +92,7 @@ namespace SuDeposuWFA
             // 
             // nudSuMiktari
             // 
+            this.nudSuMiktari.DecimalPlaces = 2;
             this.nudSuMiktari.Increment = new decimal(new int[] {
             10,
             0,
@@ -107,6 +111,16 @@ namespace SuDeposuWFA
             this.btnSuEkle.TabIndex = 4;
             this.btnSuEkle.Text = "SU EKLE";
             this.btnSuEkle.UseVisualStyleBackColor = true;
+            this.btnSuEkle.Click += new System.EventHandler(this.btnSuEkle_Click);
+            // 
+            // lblDolulukOrani
+            // 
+            this.lblDolulukOrani.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblDolulukOrani.Location = new System.Drawing.Point(249, 124);
+            this.lblDolulukOrani.Name = "lblDolulukOrani";
+            this.lblDolulukOrani.Size = new System.Drawing.Size(67, 20);
+            this.lblDolulukOrani.TabIndex = 1;
+            this.lblDolulukOrani.Text = "0%";
             // 
             // Form1
             // 
@@ -124,6 +138,7 @@ namespace SuDeposuWFA
             this.Name = "Form1";
             this.Text = "Su Deposu";
             this.pnlDepo.ResumeLayout(false);
+            this.pnlSu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudSuMiktari)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -139,6 +154,7 @@ namespace SuDeposuWFA
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nudSuMiktari;
         private System.Windows.Forms.Button btnSuEkle;
+        private System.Windows.Forms.Label lblDolulukOrani;
     }
 }
 
