@@ -34,11 +34,15 @@ namespace SuDeposuWFA
             {
                 decimal tasanMiktar = SuMiktari - Kapasite;
                 SuTastiEventArgs args = new SuTastiEventArgs(tasanMiktar);
-                if (Tasti!=null)
-                Tasti(this,new SuTastiEventArgs(tasanMiktar));
+                SuTastiginda(args);
                 SuMiktari = Kapasite;
-                
-
+            }
+        }
+        protected virtual void SuTastiginda(SuTastiEventArgs args)
+        {
+            if (Tasti!=null)
+            {
+                Tasti(this, args);
             }
         }
     }
