@@ -8,6 +8,8 @@ namespace SuDeposuWFA
 {
     public class SuDeposu
     {
+        public event EventHandler<SuTastiEventArgs> Tasti;
+
         private readonly decimal _kapasite;
         public decimal Kapasite { get { return _kapasite; } }
 
@@ -27,6 +29,17 @@ namespace SuDeposuWFA
                 throw new ArgumentException("Eklenecek su miktarı sıfırdan küçük olamaz.");
             }
             SuMiktari += miktar;
+
+            if (SuMiktari>Kapasite)
+            {
+                decimal tasanMiktar = SuMiktari - Kapasite;
+                SuTastiEventArgs args = new SuTastiEventArgs(tasanMiktar);
+                if (Tasti!=null)
+                Tasti(this,new SuTastiEventArgs(tasanMiktar));
+                SuMiktari = Kapasite;
+                
+
+            }
         }
     }
 }
